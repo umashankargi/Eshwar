@@ -35,6 +35,7 @@ h1, h2, h3, h4, h5, h6 {
 img {
     max-width: 100%;
     height: auto;
+    display: block;
 }
 
 .container {
@@ -145,20 +146,33 @@ img {
 /* Hero Section */
 .gold-hero {
     background: linear-gradient(rgba(0, 0, 0, 0.6)), url('assets/gold/gold-hero-bg.jpg') no-repeat center center/cover;
-    height: clamp(500px, 80vh, 800px);
-    min-height: 500px;
+    height: auto;
+    min-height: clamp(500px, 80vh, 800px);
     display: flex;
     align-items: center;
     position: relative;
     color: white;
-    padding: 2rem 0;
+    padding: 4rem 0;
 }
 
-.hero-content {
+.hero-image-container {
     position: relative;
-    z-index: 2;
-    padding: 0 1rem;
-    text-align: center;
+    width: 100%;
+    height: 100%;
+    max-height: 400px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gold-hero:hover .hero-image {
+    transform: scale(1.03);
 }
 
 .hero-title {
@@ -173,13 +187,6 @@ img {
     max-width: 600px;
     margin: 0 auto 2rem;
     opacity: 0.9;
-}
-
-.hero-cta {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
 }
 
 /* Section Styling */
@@ -222,11 +229,6 @@ img {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
-.product-img-container {
-    overflow: hidden;
-    position: relative;
-}
-
 .product-img {
     height: 250px;
     width: 100%;
@@ -248,10 +250,6 @@ img {
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 600;
-}
-
-.product-body {
-    padding: 1.5rem;
 }
 
 /* Buttons */
@@ -291,29 +289,14 @@ img {
     color: white;
 }
 
-/* Grid Layout */
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
+.btn-outline-light {
+    color: white;
+    border-color: white;
 }
 
-.col {
-    flex: 1 0 0%;
-    padding: 0 15px;
-}
-
-@media (min-width: 768px) {
-    .col-md-6 {
-        flex: 0 0 50%;
-        max-width: 50%;
-    }
-    
-    .col-md-4 {
-        flex: 0 0 33.333333%;
-        max-width: 33.333333%;
-    }
+.btn-outline-light:hover {
+    background-color: white;
+    color: var(--primary-color);
 }
 
 /* Gold Features */
@@ -339,42 +322,12 @@ img {
     margin-bottom: 1.5rem;
 }
 
-/* Testimonials */
-.testimonial-card {
-    background-color: white;
-    border-radius: 8px;
-    padding: 2rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    height: 100%;
-    margin-bottom: 2rem;
-}
-
-.testimonial-rating {
-    color: var(--secondary-color);
-    margin-bottom: 1rem;
-}
-
-.testimonial-author {
-    display: flex;
-    align-items: center;
-    margin-top: 1.5rem;
-}
-
-.testimonial-author img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 1rem;
-}
-
 /* CTA Section */
 .cta-section {
     background: linear-gradient(135deg, var(--primary-color), #2a2a2a);
     color: white;
     position: relative;
     overflow: hidden;
-    text-align: center;
 }
 
 .cta-section::before {
@@ -386,14 +339,6 @@ img {
     height: 100%;
     background: url('assets/gold/gold-pattern.png') repeat;
     opacity: 0.05;
-}
-
-.cta-content {
-    position: relative;
-    z-index: 2;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 1rem;
 }
 
 /* Footer */
@@ -478,26 +423,7 @@ img {
     transition: var(--transition);
 }
 
-.whatsapp-community-float {
-    position: fixed;
-    bottom: 30px;
-    right: 100px;
-    width: 60px;
-    height: 60px;
-    background-color: #128C7E;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    box-shadow: 0 5px 15px rgba(18, 140, 126, 0.3);
-    z-index: 1000;
-    transition: var(--transition);
-}
-
-.whatsapp-float:hover,
-.whatsapp-community-float:hover {
+.whatsapp-float:hover {
     transform: scale(1.1);
 }
 
@@ -582,37 +508,6 @@ img {
     100% { transform: scale(1); }
 }
 
-/* Highlighted Links */
-.highlight-whatsapp {
-    background-color: rgba(37, 211, 102, 0.1);
-    padding: 8px 12px;
-    border-radius: 5px;
-    margin: 5px 0;
-}
-
-.highlight-whatsapp a {
-    color: #25D366;
-    font-weight: 600;
-}
-
-.highlight-community {
-    background-color: rgba(37, 211, 102, 0.2);
-    padding: 8px 12px;
-    border-radius: 5px;
-    margin: 5px 0;
-}
-
-.highlight-community a {
-    color: #25D366;
-    font-weight: 600;
-}
-
-.highlight-link {
-    color: var(--primary-color);
-    font-weight: 500;
-    text-decoration: underline;
-}
-
 /* Responsive Adjustments */
 @media (max-width: 1199.98px) {
     .hero-title {
@@ -622,7 +517,7 @@ img {
 
 @media (max-width: 991.98px) {
     .gold-hero {
-        height: clamp(500px, 70vh, 700px);
+        min-height: clamp(500px, 70vh, 700px);
     }
     
     .navbar-collapse {
@@ -640,12 +535,17 @@ img {
     .nav-link::after {
         display: none;
     }
+    
+    .hero-image-container {
+        max-height: 350px;
+        margin-bottom: 2rem;
+    }
 }
 
 @media (max-width: 767.98px) {
     .gold-hero {
-        height: clamp(400px, 60vh, 600px);
-        min-height: 400px;
+        min-height: clamp(400px, 60vh, 600px);
+        padding: 3rem 0;
     }
     
     .hero-title {
@@ -657,25 +557,23 @@ img {
     }
     
     .product-card,
-    .feature-card,
-    .testimonial-card {
+    .feature-card {
         margin-bottom: 1.5rem;
-    }
-    
-    .whatsapp-community-float {
-        right: 30px;
-        bottom: 100px;
     }
     
     .alert-bar .container {
         flex-direction: column;
     }
+    
+    .hero-image-container {
+        max-height: 300px;
+    }
 }
 
 @media (max-width: 575.98px) {
     .gold-hero {
-        height: clamp(350px, 50vh, 500px);
-        min-height: 350px;
+        min-height: clamp(350px, 50vh, 500px);
+        padding: 2rem 0;
     }
     
     .hero-title {
@@ -686,34 +584,226 @@ img {
         font-size: 1rem;
     }
     
-    .hero-cta {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .btn {
-        width: 100%;
-        max-width: 250px;
+    .hero-image-container {
+        max-height: 250px;
     }
     
     .whatsapp-float,
-    .whatsapp-community-float,
     .back-to-top {
         width: 50px;
         height: 50px;
         font-size: 1.2rem;
     }
     
-    .whatsapp-community-float {
-        right: 20px;
-        bottom: 80px;
-    }
-    
     .back-to-top {
-        bottom: 140px;
+        bottom: 90px;
     }
     
     .map-link {
         font-size: 0.8rem;
     }
+}
+
+/* Text Colors */
+.text-gold {
+    color: var(--secondary-color);
+}
+
+/* Background Colors */
+.bg-light {
+    background-color: var(--light-color);
+}
+
+/* Object Fit */
+.object-fit-cover {
+    object-fit: cover;
+}
+
+/* Ratio */
+.ratio {
+    position: relative;
+    width: 100%;
+}
+
+.ratio::before {
+    display: block;
+    padding-top: var(--aspect-ratio);
+    content: "";
+}
+
+.ratio > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.ratio-16x9 {
+    --aspect-ratio: calc(9 / 16 * 100%);
+}
+
+/* Utility Classes */
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+.mt-4 {
+    margin-top: 1.5rem !important;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.text-start {
+    text-align: left !important;
+}
+
+.text-end {
+    text-align: right !important;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.align-items-center {
+    align-items: center !important;
+}
+
+.justify-content-center {
+    justify-content: center !important;
+}
+
+.justify-content-between {
+    justify-content: space-between !important;
+}
+
+.flex-wrap {
+    flex-wrap: wrap !important;
+}
+
+.gap-3 {
+    gap: 1rem !important;
+}
+
+.position-relative {
+    position: relative !important;
+}
+
+.position-absolute {
+    position: absolute !important;
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+.h-100 {
+    height: 100% !important;
+}
+
+.rounded {
+    border-radius: 0.25rem !important;
+}
+
+.rounded-3 {
+    border-radius: 0.5rem !important;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.shadow-none {
+    box-shadow: none !important;
+}
+
+.border-0 {
+    border: 0 !important;
+}
+
+.p-4 {
+    padding: 1.5rem !important;
+}
+
+.me-2 {
+    margin-right: 0.5rem !important;
+}
+
+.me-3 {
+    margin-right: 1rem !important;
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem !important;
+}
+
+.mb-3 {
+    margin-bottom: 1rem !important;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem !important;
+}
+
+.mb-5 {
+    margin-bottom: 3rem !important;
+}
+
+.mt-5 {
+    margin-top: 3rem !important;
+}
+
+.py-5 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+}
+
+.py-4 {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+}
+
+.pb-3 {
+    padding-bottom: 1rem !important;
+}
+
+.lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
+.small {
+    font-size: 0.875rem;
+}
+
+.h4 {
+    font-size: 1.5rem;
+}
+
+.h5 {
+    font-size: 1.25rem;
+}
+
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+
+/* Accordion */
+.accordion-button:not(.collapsed) {
+    color: var(--secondary-color);
+    background-color: rgba(212, 175, 55, 0.1);
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: rgba(212, 175, 55, 0.25);
 }
