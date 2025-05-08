@@ -109,7 +109,15 @@
     <header class="hero">
         <div class="hero-slider">
             <!-- Slide 1 -->
-            <div class="slide" style="background-image: url('Eshwra.png');">
+            <div class="slide active">
+                <picture>
+                    <!-- Mobile-optimized image -->
+                    <source media="(max-width: 767px)" srcset="Eshwra-mobile.jpg">
+                    <!-- Desktop image -->
+                    <source media="(min-width: 768px)" srcset="Eshwra.png">
+                    <!-- Fallback -->
+                    <img src="Eshwra.png" alt="Eshwar Jewelry Collection" class="slide-image">
+                </picture>
                 <div class="container">
                     <div class="slide-content">
                         <h1>Eshwar Jewelry</h1>
@@ -118,7 +126,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Slide 2 -->
         </div>
         <div class="slider-controls">
             <button class="prev-slide"><i class="fas fa-chevron-left"></i></button>
@@ -127,7 +134,7 @@
     </header>
 
     <!-- Featured Categories -->
-    <section class="featured-categories" >
+    <section class="featured-categories">
         <div class="container">
             <div class="section-header">
                 <h2>Our Premium Collections</h2>
@@ -135,8 +142,10 @@
             </div>
             <div class="categories-grid">
                 <!-- Gold -->
-                <div class="category-card" >
-                    <div class="category-image" id="collection" style="background-image: url('gold.jpg')"></div>
+                <div class="category-card">
+                    <div class="category-image" id="collection">
+                        <img src="gold.jpg" alt="Gold Collection" class="img-fluid">
+                    </div>
                     <div class="category-content">
                         <h3>Gold Collection</h3>
                         <ul>
@@ -151,7 +160,9 @@
                 </div>
                 <!-- Silver -->
                 <div class="category-card">
-                    <div class="category-image" style="background-image: url('silver.jpg')"></div>
+                    <div class="category-image">
+                        <img src="silver.jpg" alt="Silver Collection" class="img-fluid">
+                    </div>
                     <div class="category-content">
                         <h3>Silver Collection</h3>
                         <ul>
@@ -178,7 +189,9 @@
                     <p>Each piece in our collection is meticulously crafted by artisans who bring decades of experience to their work. We source only the finest materials and adhere to strict quality standards to ensure your jewelry lasts for generations.</p>
                     <p>What sets us apart is our commitment to personalized service. Whether you're looking for a special gift, wedding jewelry, or an investment piece, our experts will guide you to find the perfect match.</p>
                 </div>
-                <div class="about-image" style="background-image: url('image.jpg')"></div>
+                <div class="about-image">
+                    <img src="image.jpg" alt="Eshwar Jewelry Store" class="img-fluid">
+                </div>
             </div>
         </div>
     </section>
