@@ -5,25 +5,6 @@ AOS.init({
     once: true
 });
 
-// Initialize Testimonial Swiper
-const testimonialSwiper = new Swiper('.testimonialSwiper', {
-    slidesPerView: 1,
-    spaceBetween: 30,
-    loop: true,
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
-    breakpoints: {
-        768: { slidesPerView: 2 },
-        1200: { slidesPerView: 3 },
-    },
-    autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-    },
-});
-
 // Navbar scroll effect
 window.addEventListener('scroll', function() {
     const navbar = document.querySelector('.navbar');
@@ -63,6 +44,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 top: target.offsetTop - 80,
                 behavior: 'smooth'
             });
+            
+            // Close mobile menu if open
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            if (!navbarToggler.classList.contains('collapsed')) {
+                navbarToggler.click();
+            }
         }
     });
 });
@@ -76,8 +64,9 @@ document.querySelectorAll('form').forEach(form => {
         this.reset();
     });
 });
+
 // WhatsApp button functionality
-document.querySelectorAll('.whatsapp-float, .highlight-whatsapp a').forEach(btn => {
+document.querySelectorAll('.whatsapp-float').forEach(btn => {
     btn.addEventListener('click', function(e) {
         e.preventDefault();
         window.open('https://wa.me/919912438836', '_blank');
@@ -85,7 +74,7 @@ document.querySelectorAll('.whatsapp-float, .highlight-whatsapp a').forEach(btn 
 });
 
 // WhatsApp community button functionality
-document.querySelectorAll('.whatsapp-community-float, .highlight-community a, .whatsapp-community-alert').forEach(btn => {
+document.querySelectorAll('.whatsapp-community-alert').forEach(btn => {
     btn.addEventListener('click', function(e) {
         e.preventDefault();
         window.open('https://chat.whatsapp.com/CJ2YjvRefRcGIU5W7qtbTg', '_blank');
@@ -93,9 +82,30 @@ document.querySelectorAll('.whatsapp-community-float, .highlight-community a, .w
 });
 
 // Map link functionality
-document.querySelectorAll('.map-link, .highlight-link').forEach(btn => {
+document.querySelectorAll('.map-link').forEach(btn => {
     btn.addEventListener('click', function(e) {
         e.preventDefault();
         window.open('https://maps.app.goo.gl/Zq5KPthJUn6sJwXc6', '_blank');
     });
 });
+
+// Initialize Swiper for testimonials if exists
+if (document.querySelector('.testimonialSwiper')) {
+    const testimonialSwiper = new Swiper('.testimonialSwiper', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        breakpoints: {
+            768: { slidesPerView: 2 },
+            1200: { slidesPerView: 3 },
+        },
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
+    });
+}
