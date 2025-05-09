@@ -110,6 +110,14 @@ img {
 .navbar-collapse {
     justify-content: flex-end;
 }
+.navbar-toggler span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: black; /* Set the color to black */
+    margin: 5px 0;
+    transition: 0.4s;
+}
 
 .nav-link {
     font-weight: 500;
