@@ -55,6 +55,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Form submission handling
+document.querySelectorAll('form').forEach(form => {
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Add your form submission logic here
+        alert('Thank you for your message. We will contact you shortly.');
+        this.reset();
+    });
+});
+
 // WhatsApp button functionality
 document.querySelectorAll('.whatsapp-float').forEach(btn => {
     btn.addEventListener('click', function(e) {
@@ -78,3 +88,24 @@ document.querySelectorAll('.map-link').forEach(btn => {
         window.open('https://maps.app.goo.gl/Zq5KPthJUn6sJwXc6', '_blank');
     });
 });
+
+// Initialize Swiper for testimonials if exists
+if (document.querySelector('.testimonialSwiper')) {
+    const testimonialSwiper = new Swiper('.testimonialSwiper', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        breakpoints: {
+            768: { slidesPerView: 2 },
+            1200: { slidesPerView: 3 },
+        },
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
+    });
+}
