@@ -1,8 +1,21 @@
+// Loading Screen
+window.addEventListener('load', function() {
+    const pageLoader = document.querySelector('.page-loader');
+    setTimeout(function() {
+        pageLoader.classList.add('fade-out');
+        setTimeout(function() {
+            pageLoader.style.display = 'none';
+        }, 500);
+    }, 1000);
+});
+
 // Initialize AOS
 AOS.init({
     duration: 800,
-    easing: 'ease-in-out',
-    once: true
+    easing: 'ease-in-out-quart',
+    once: true,
+    mirror: false,
+    anchorPlacement: 'top-bottom'
 });
 
 // Navbar scroll effect
@@ -41,7 +54,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
             window.scrollTo({
-                top: target.offsetTop - 80,
+                top: target.offsetTop - 100,
                 behavior: 'smooth'
             });
             
@@ -59,8 +72,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 document.querySelectorAll('form').forEach(form => {
     form.addEventListener('submit', function(e) {
         e.preventDefault();
-        // Add your form submission logic here
-        alert('Thank you for your message. We will contact you shortly.');
+        showToast('Thank you for your message. We will contact you shortly.');
         this.reset();
     });
 });
@@ -89,23 +101,59 @@ document.querySelectorAll('.map-link').forEach(btn => {
     });
 });
 
-// Initialize Swiper for testimonials if exists
-if (document.querySelector('.testimonialSwiper')) {
-    const testimonialSwiper = new Swiper('.testimonialSwiper', {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        loop: true,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        breakpoints: {
-            768: { slidesPerView: 2 },
-            1200: { slidesPerView: 3 },
-        },
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
+// Wishlist functionality
+document.querySelectorAll('.wishlist-btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        this.classList.toggle('active');
+        const icon = this.querySelector('i');
+        
+        if (this.classList.contains('active')) {
+            icon.classList.remove('far');
+            icon.classList.add('fas');
+            showToast('Added to wishlist');
+        } else {
+            icon.classList.remove('fas');
+            icon.classList.add('far');
+            showToast('Removed from wishlist');
+        }
+    });
+});
+
+
+// Current time for gold ticker
+function updateCurrentTime() {
+    const now = new Date();
+    const timeString = now.toLocaleTimeString('en-IN', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+    });
+    document.getElementById('current-time').textContent = timeString;
+}
+
+// Update time every minute
+updateCurrentTime();
+setInterval(updateCurrentTime, 60000);
+
+// Toast Notification
+function showToast(message) {
+    const toastEl = document.getElementById('liveToast');
+    const toastMessage = document.getElementById('toastMessage');
+    
+    if (toastEl && toastMessage) {
+        toastMessage.textContent = message;
+        const toast = new bootstrap.Toast(toastEl);
+        toast.show();
+    }
+}
+
+
+// Parallax effect for hero image
+if (document.querySelector('.gold-hero')) {
+    const hero = document.querySelector('.gold-hero');
+    window.addEventListener('scroll', function() {
+        const scrollPosition = window.pageYOffset;
+        hero.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
     });
 }
