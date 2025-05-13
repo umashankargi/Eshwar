@@ -28,9 +28,6 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
-    <!-- Swiper JS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-    
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
@@ -38,56 +35,57 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      "name": "Silver Jewelry Collection",
-      "description": "Exquisite 925 sterling silver jewelry collection featuring necklaces, rings, earrings, and pooja items. Handcrafted by master artisans with quality guarantee.",
-      "url": "https://www.eshwarjewelry.com/silver",
-      "mainEntityOfPage": {
-        "@type": "ItemList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "item": {
-              "@type": "Product",
-              "name": "Silver Necklaces",
-              "url": "https://www.eshwarjewelry.com/silver-necklaces"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "item": {
-              "@type": "Product",
-              "name": "Silver Rings",
-              "url": "https://www.eshwarjewelry.com/silver-rings"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "item": {
-              "@type": "Product",
-              "name": "Silver Earrings",
-              "url": "https://www.eshwarjewelry.com/silver-earrings"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 4,
-            "item": {
-              "@type": "Product",
-              "name": "Pooja Items",
-              "url": "https://www.eshwarjewelry.com/silver-pooja-items"
-            }
-          }
-        ]
-      }
+      "@type": "JewelryStore",
+      "name": "Eshwar Jewelry",
+      "description": "Exquisite 925 sterlingCIAS silver jewelry collection featuring necklaces, rings, earrings, and pooja items. Handcrafted by master artisans with quality guarantee.",
+      "url": "https://www.eshwarjewelry.com",
+      "logo": "https://www.eshwarjewelry.com/logo.png",
+      "telephone": "+919912438836",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Main Road",
+        "addressLocality": "Valigonda",
+        "addressRegion": "Telangana",
+        "postalCode": "508112",
+        "addressCountry": "IN"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "10:00",
+        "closes": "20:00"
+      },
+      "priceRange": "$$"
     }
     </script>
     <link rel="stylesheet" href="G.css">
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="page-loader">
+        <div class="loader-content">
+            <div class="gold-loader"></div>
+            <p>Loading Elegance...</p>
+        </div>
+    </div>
+    
+    <!-- Silver Price Ticker -->
+    <div class="gold-price-ticker">
+        <div class="container">
+            <div class="ticker-content">
+                <span class="gold-rate"><i class="fas fa-coins me-2"></i> Silver: ₹70/g</span>
+                <span class="last-updated">Updated: <span id="current-time"></span></span>
+            </div>
+        </div>
+    </div>
+    
     <div class="alert-bar">
         <div class="container">
             <a href="https://chat.whatsapp.com/CJ2YjvRefRcGIU5W7qtbTg" target="_blank" class="whatsapp-community-alert">
@@ -98,10 +96,11 @@
             </a>
         </div>
     </div>
+    
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="logo.png" alt="Eshwar Jewelry" class="logo">
+                <img src="logo.png" alt="Eshwar Jewelry" class="logo" loading="lazy">
                 <span class="brand-name">Eshwar Jewelry</span>
             </a>
             <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -118,7 +117,7 @@
                         <a class="nav-link" href="gold.html">Gold</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="silver.html">Silver</a>
+                        <a class="nav-link active" href="silver.html">Silver</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="collections.html">Collections</a>
@@ -135,35 +134,63 @@
     </nav>
 
     <!-- Silver Hero Section -->
-    <section class="gold-hero">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-7" data-aos="fade-up" data-aos-duration="800">
-                    <h1 class="hero-title">Eshwar Jewelry</h1>
-                    <h2 class="hero-title">Silver Jewelry Collection</h2>
-                    <p class="hero-subtitle">Handcrafted sterling silver pieces that blend timeless tradition with contemporary elegance. Each piece comes with quality guarantee.</p>
+    <section class="gold-hero position-relative overflow-hidden">
+        <div class="gold-overlay"></div>
+        <div class="gold-particles"></div>
+        <div class="container position-relative z-index-1">
+            <div class="row align-items-center min-vh-80">
+                <div class="col-lg-7 order-lg-1 order-2 py-5" data-aos="fade-up" data-aos-duration="800">
+                    <h1 class="hero-title display-3 fw-bold mb-4">
+                        <span class="text-gold">Eshwar Jewelry</span> Silver Collection
+                    </h1>
+                    <p class="hero-subtitle lead mb-5">
+                        Handcrafted 925 sterling silver pieces blending timeless tradition with contemporary elegance. 
+                        Each piece is crafted with a quality guarantee.
+                    </p>
                     <div class="d-flex flex-wrap gap-3">
-                        <a href="#gold-collection" class="btn btn-primary btn-lg">
-                            <i class="fas fa-gem me-2"></i> View Collection
+                        <a href="#silver-collection" class="btn btn-gold btn-lg px-4 py-3">
+                            <i class="fas fa-gem me-2"></i> Explore Collection
                         </a>
-                        <a href="https://wa.me/919912438836" class="btn btn-outline-light btn-lg" target="_blank">
-                            <i class="fab fa-whatsapp me-2"></i> Chat Now
+                        <a href="https://wa.me/919912438836" 
+                           class="btn btn-outline-light btn-lg px-4 py-3"
+                           target="_blank">
+                            <i class="fab fa-whatsapp me-2"></i> Chat on WhatsApp
                         </a>
                     </div>
-                </div>
-                <div class="col" data-aos="fade-left">
-                    <div class="position-relative" style="width: 100%; height: 100%;">
-                        <img src="image.jpg" alt="Gold Necklaces Collection"
-                             class="img-fluid w-100 h-100 rounded-3 object-fit-cover">
-                        <span class="product-badge">Bestseller</span>
+                    <div class="trust-badges mt-5 d-flex flex-wrap gap-4">
+                        <div class="badge-item d-flex align-items-center">
+                            <i class="fas fa-award text-gold fs-4 me-2"></i>
+                            <span>925 Sterling Silver</span>
+                        </div>
+                        <div class="badge-item d-flex align-items-center">
+                            <i class="fas fa-history text-gold fs-4 me-2"></i>
+                            <span>Since 1995</span>
+                        </div>
+                        <div class="badge-item d-flex align-items-center">
+                            <i class="fas fa-hand-holding-heart text-gold fs-4 me-2"></i>
+                            <span>Quality Guarantee</span>
+                        </div>
                     </div>
                 </div>
+                <div class="col-lg-5 order-lg-2 order-2">
+    <div class="hero-image-container position-relative">
+        <img src="Eshwra.png" 
+             alt="Luxury Gold Jewelry Collection"
+             class="img-fluid rounded-4 shadow-lg" loading="lazy">
+        <div class="floating-badge bg-gold text-white">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-certificate me-2"></i>
+                <span>Authentic 24K Gold</span>
+            </div>
+        </div>
+    </div>
+</div>
             </div>
         </div>
     </section>
 
     <!-- Silver Collection Section -->
-    <section id="gold-collection" class="section bg-light">
+    <section id="silver-collection" class="section bg-light">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12 text-center">
@@ -171,61 +198,72 @@
                     <p class="lead" data-aos="fade-up" data-aos-delay="100">Crafted with precision, designed for elegance</p>
                 </div>
             </div>
-            
             <div class="row g-4">
-                <!-- Necklaces -->
+                <!-- Annaprashan Baby -->
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="product-card">
-                        <div class="position-relative">
-                            <img src="Annaprashanbaby.jpg" alt="Silver Necklaces Collection" class="img-fluid product-img w-100">
+                        <div class="product-img-container position-relative">
+                            <img src="Annaprashanbaby.jpg" alt="Annaprashan Baby Collection" class="img-fluid product-img" loading="lazy">
                             <span class="product-badge">Bestseller</span>
+                            <button class="wishlist-btn">
+                                <i class="far fa-heart"></i>
+                            </button>
                         </div>
-                        <div class="p-4">
-                            <h3 class="h4 mb-3">Annaprashan baby</h3>
-                            <p class="text-muted mb-4">From traditional designs to contemporary statement pieces, our silver necklaces are crafted to perfection.</p>
-                            <div class="d-flex justify-content-between align-items-center">
+                        <div class="product-body">
+                            <h3 class="product-title">Annaprashan Baby</h3>
+                            <p class="text-muted mb-3">Delicate silver jewelry designed for babies, perfect for traditional ceremonies like Annaprashan.</p>
+                            <div class="product-actions">
                                 <a href="Annaprashan-baby.html" class="btn btn-outline-primary">View Collection</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Rings -->
+                <!-- Pattilu -->
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="product-card">
-                        <div class="position-relative">
-                            <img src="pati.jpg" alt="Silver Rings Collection" class="img-fluid product-img w-100">
+                        <div class="product-img-container position-relative">
+                            <img src="pati.jpg" alt="Silver Pattilu Collection" class="img-fluid product-img" loading="lazy">
+                            <span class="product-badge">Exclusive</span>
+                            <button class="wishlist-btn">
+                                <i class="far fa-heart"></i>
+                            </button>
                         </div>
-                        <div class="p-4">
-                            <h3 class="h4 mb-3">Silver Pattilu</h3>
-                            <p class="text-muted mb-4">Symbols of love and commitment, our rings range from simple bands to elaborate gemstone-studded designs.</p>
-                            <div class="d-flex justify-content-between align-items-center">
+                        <div class="product-body">
+                            <h3 class="product-title">Silver Pattilu</h3>
+                            <p class="text-muted mb-3">Traditional silver anklets that add elegance and charm, ideal for cultural and festive occasions.</p>
+                            <div class="product-actions">
                                 <a href="Pati.html" class="btn btn-outline-primary">View Collection</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Earrings -->
+                <!-- Vigrahalu -->
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
                     <div class="product-card">
-                        <div class="position-relative">
-                            <img src="lax.webp" alt="Silver Earrings Collection" class="img-fluid product-img w-100">
+                        <div class="product-img-container position-relative">
+                            <img src="lax.webp" alt="Vigrahalu Collection" class="img-fluid product-img" loading="lazy">
                             <span class="product-badge">New Arrival</span>
+                            <button class="wishlist-btn">
+                                <i class="far fa-heart"></i>
+                            </button>
                         </div>
-                        <div class="p-4">
-                            <h3 class="h4 mb-3">Vigrahalu </h3>
-                            <p class="text-muted mb-4">Traditional jhumkas, elegant studs, and modern dangles - find the perfect pair for every occasion.</p>
-                            <div class="d-flex justify-content-between align-items-center">
+                        <div class="product-body">
+                            <h3 class="product-title">Vigrahalu</h3>
+                            <p class="text-muted mb-3">Exquisite silver idols and pooja items, crafted for spiritual significance and aesthetic beauty.</p>
+                            <div class="product-actions">
                                 <a href="vigrahalu.html" class="btn btn-outline-primary">View Collection</a>
                             </div>
                         </div>
                     </div>
                 </div>
-            <div class="text-center mt-5" data-aos="fade-up">
-                <a href="#gold-collection" class="btn btn-primary btn-lg">
-                    <i class="fas fa-eye me-2"></i> View Full Collection
-                </a>
+                
+                <div class="text-center mt-5" data-aos="fade-up">
+                    <a href="#silver-collection" class="btn btn-gold btn-lg px-5 py-3">
+                        <i class="fas fa-eye me-2"></i> View Full Collection
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -235,8 +273,8 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
-                    <div class="ratio ratio-16x9">
-                        <img src="silver.jpg" alt="Silver Jewelry Craftsmanship" class="img-fluid rounded">
+                    <div class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg">
+                        <img src="silver.jpg" alt="Silver Jewelry Craftsmanship" class="img-fluid object-fit-cover" loading="lazy">
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
@@ -294,12 +332,58 @@
             </div>
         </div>
     </section>
+
+    <!-- Silver Purity Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title" data-aos="fade-up">Understanding Silver Purity</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Know what makes our silver special</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                        <h3>925 Sterling Silver</h3>
+                        <p>Contains 92.5% pure silver alloyed with 7.5% other metals (usually copper) for durability while maintaining a brilliant shine.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>Quality Certification</h3>
+                        <p>Each piece is tested for purity and quality, ensuring you receive authentic sterling silver jewelry.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Tarnish Resistance</h3>
+                        <p>Our silver jewelry is treated to resist tarnishing, keeping your pieces radiant with minimal maintenance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
     <section class="cta-section py-5">
         <div class="container py-4">
             <div class="row align-items-center">
                 <div class="col-lg-8 mb-4 mb-lg-0" data-aos="fade-right">
-                    <h2 class="mb-3">Experience the Eshwar Jewelry Difference</h2>
-                    <p class="mb-0 lead">Schedule a private viewing or consultation with our silver jewelry experts.</p>
+                    <h2 class="mb-3 text-white">Experience the Eshwar Jewelry Difference</h2>
+                    <p class="mb-0 lead text-white-80">Schedule a private viewing or consultation with our silver jewelry experts.</p>
                 </div>
                 <div class="col-lg-4 text-lg-end" data-aos="fade-left">
                     <a href="tel:+919912438836" class="btn btn-light btn-lg me-3">
@@ -312,19 +396,24 @@
             </div>
         </div>
     </section>
+
+    
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="row g-5">
                 <div class="col-lg-4 col-md-6">
                     <div class="logo-section mb-4">
-                        <img src="logo.png" alt="Eshwar Jewelry" class="img-fluid mb-3" style="height: 70px;">
-                        <p>Crafting exquisite jewelry since 1995 with traditional craftsmanship and modern designs. Our silver collection reflects timeless elegance and superior quality.</p>
+                        <img src="logo.png" alt="Eshwar Jewelry" class="img-fluid mb-3" style="height: 70px;" loading="lazy">
+                        <p class="text-white-80">Crafting exquisite jewelry since 1995 with traditional craftsmanship and modern designs. Our silver collection reflects timeless elegance and superior quality.</p>
                         <div class="social-links mt-4">
                             <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                             <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://chat.whatsapp.com/CJ2YjvRefRcGIU5W7qtbTg" target="_blank" aria-label="WhatsApp Community" style="background-color: #25D366; color: white;">
+                                <i class="fas fa-users"></i>
+                            </a>
+                            <a href="https://wa.me/919912438836" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                             <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                            <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
                         </div>
                     </div>
                 </div>
@@ -343,7 +432,7 @@
                 <div class="col-lg-3 col-md-6">
                     <h5>Silver Collections</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="Annaprashan-baby.html">Annaprashan baby</a></li>
+                        <li class="mb-2"><a href="Annaprashan-baby.html">Annaprashan Baby</a></li>
                         <li class="mb-2"><a href="Pati.html">Pattilu</a></li>
                         <li class="mb-2"><a href="vigrahalu.html">Vigrahalu</a></li>
                     </ul>
@@ -362,7 +451,7 @@
                         </li>
                         <li class="mb-3">
                             <i class="fas fa-envelope me-2"></i> 
-                            <a href="mailto:info@eshwarjewelry.com">bogaravikumar143@gmail.com</a>
+                            <a href="mailto:bogaravikumar143@gmail.com">info@eshwarjewelry.com</a>
                         </li>
                         <li class="mb-3">
                             <i class="fas fa-clock me-2"></i> 
@@ -373,16 +462,16 @@
                 </div>
             </div>
             
-            <hr class="my-5">
+            <hr class="my-5 border-white-10">
             
             <div class="row">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    <p class="copyright">&copy; 2023 Eshwar Jewelry. All rights reserved.</p>
+                    <p class="copyright text-white-60">© 2023 Eshwar Jewelry. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
-                    <a href="privacy-policy.html" class="me-3">Privacy Policy</a>
-                    <a href="terms.html" class="me-3">Terms of Service</a>
-                    <a href="shipping.html">Shipping Policy</a>
+                    <a href="privacy-policy.html" class="me-3 text-white-60">Privacy Policy</a>
+                    <a href="terms.html" class="me-3 text-white-60">Terms of Service</a>
+                    <a href="shipping.html" class="text-white-60">Shipping Policy</a>
                 </div>
             </div>
         </div>
@@ -398,11 +487,21 @@
         <i class="fas fa-arrow-up"></i>
     </div>
 
+    <!-- Toast Notification -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header bg-gold text-dark">
+                <strong class="me-auto">Eshwar Jewelry</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body" id="toastMessage">
+                Item added to wishlist
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <!-- AOS Animation -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
