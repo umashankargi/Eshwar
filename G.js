@@ -89,7 +89,7 @@ document.querySelectorAll('.whatsapp-float').forEach(btn => {
 document.querySelectorAll('.whatsapp-community-alert').forEach(btn => {
     btn.addEventListener('click', function(e) {
         e.preventDefault();
-        window.open('https://chat.whatsapp.com/CJ2YjvRefRcGIU5W7qtbTg', '_blank');
+        window.open('https://chat.whatsapp.com/DUi8XW13jBo66VkSoMezUJ', '_blank');
     });
 });
 
